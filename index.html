@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patrícia Costa | Assistente Social</title>
+<meta name="description" content="Consultoria e intervenção social centrada na família, infância e juventude. Atendimento presencial e online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rose: #a97b8e;
+    --rose-deep: #8a5b70;
+    --rose-pale: #f3e9ea;
+    --cream: #fbf7f5;
+    --ink: #362c31;
+    --ink-soft: #6b5c62;
+    --line: #e5d6d8;
+    --white: #ffffff;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    font-family: 'Jost', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3,.serif{
+    font-family: 'Cormorant Garamond', serif;
+  }
+  a{ text-decoration:none; }
+  img{ max-width:100%; display:block; }
+
+  .wrap{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ===== Watermark signature element ===== */
+  .watermark{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+  }
+  .watermark span{
+    position:absolute;
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    font-style: italic;
+    color: var(--rose);
+    opacity:0.06;
+    line-height:1;
+    user-select:none;
+  }
+  .watermark .p{
+    left:-4vw; top:-8vw;
+    font-size: 42vw;
+  }
+  .watermark .c{
+    right:-8vw; bottom:-14vw;
+    font-size: 46vw;
+  }
+
+  /* ===== Header / Hero ===== */
+  header{
+    position: relative;
+    overflow:hidden;
+    padding: 76px 0 64px;
+    text-align:center;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, var(--rose-pale) 0%, transparent 70%),
+      var(--cream);
+  }
+  .hero-inner{ position:relative; z-index:1; }
+
+  .logo-img{
+    width: 260px;
+    margin: 0 auto 8px;
+    opacity: 0;
+    animation: rise 1s ease-out 0.1s forwards;
+  }
+
+  .tagline{
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 6px 0 30px;
+    opacity: 0;
+    animation: rise 1s ease-out 0.35s forwards;
+  }
+
+  .hero-title{
+    font-size: 34px;
+    font-weight: 500;
+    margin: 0 0 6px;
+    color: var(--ink);
+    opacity: 0;
+    animation: rise 1s ease-out 0.5s forwards;
+  }
+  .hero-focus{
+    font-size: 20px;
+    color: var(--rose-deep);
+    margin: 0 0 26px;
+    letter-spacing: 0.5px;
+    opacity: 0;
+    animation: rise 1s ease-out 0.65s forwards;
+  }
+  .hero-focus .dot{ color: var(--rose); margin: 0 10px; }
+
+  .divider{
+    width: 60px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 26px;
+    position: relative;
+  }
+  .divider::after{
+    content:'';
+    position:absolute;
+    top:-3px; left:50%;
+    transform: translateX(-50%);
+    width:6px; height:6px;
+    border-radius:50%;
+    background: var(--rose);
+  }
+
+  .hero-copy{
+    max-width: 420px;
+    margin: 0 auto 34px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    font-weight: 300;
+    opacity: 0;
+    animation: rise 1s ease-out 0.8s forwards;
+  }
+
+  .cta{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background: var(--rose-deep);
+    color: var(--white);
+    font-family:'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 17px 36px;
+    border-radius: 999px;
+    box-shadow: 0 10px 24px -8px rgba(138,91,112,0.55);
+    transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+    opacity: 0;
+    animation: rise 1s ease-out 0.95s forwards;
+  }
+  .cta:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -8px rgba(138,91,112,0.65);
+    background: var(--rose);
+  }
+  .cta svg{ width:16px; height:16px; }
+
+  .lock-note{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 16px;
+    opacity: 0;
+    animation: rise 1s ease-out 1.1s forwards;
+  }
+  .lock-note svg{ width:12px; height:12px; opacity:0.7; }
+
+  @keyframes rise{
+    from{ opacity:0; transform: translateY(14px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .logo-img,.tagline,.hero-title,.hero-focus,.hero-copy,.cta,.lock-note{
+      animation: none !important;
+      opacity: 1 !important;
+    }
+  }
+
+  /* ===== Section shells ===== */
+  section{ position: relative; }
+  .section-head{
+    text-align:center;
+    margin-bottom: 48px;
+  }
+  .eyebrow{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+  }
+  .eyebrow::before, .eyebrow::after{
+    content:'';
+    height:1px;
+    width:44px;
+    background: var(--line);
+  }
+  .eyebrow h2{
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    margin:0;
+  }
+  .section-head .dot{
+    width:5px; height:5px;
+    border-radius:50%;
+    background: var(--rose);
+    margin: 12px auto 0;
+  }
+
+  /* ===== Serviços ===== */
+  .services{
+    background: var(--white);
+    padding: 72px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .service-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 24px;
+  }
+  .service{
+    text-align:center;
+  }
+  .service .icon{
+    width: 78px;
+    height:78px;
+    margin: 0 auto 18px;
+    border-radius:50%;
+    background: var(--rose-pale);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: transform .3s ease, background .3s ease;
+  }
+  .service:hover .icon{
+    transform: translateY(-4px);
+    background: var(--rose);
+  }
+  .service:hover .icon svg{ stroke: var(--white); }
+  .service .icon svg{
+    width: 32px; height:32px;
+    stroke: var(--rose-deep);
+    fill:none;
+    stroke-width:1.4;
+    transition: stroke .3s ease;
+  }
+  .service h3{
+    font-family:'Jost', sans-serif;
+    font-size: 15.5px;
+    font-weight: 500;
+    margin:0;
+    line-height:1.4;
+    color: var(--ink);
+  }
+
+  /* ===== Como Funciona ===== */
+  .process{
+    background: var(--rose-pale);
+    padding: 72px 0 80px;
+  }
+  .process-track{
+    position:relative;
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+  }
+  .process-track::before{
+    content:'';
+    position:absolute;
+    top:22px;
+    left: 8.3%;
+    right: 8.3%;
+    height:1px;
+    background: var(--line);
+  }
+  .process-step{
+    position:relative;
+    text-align:center;
+  }
+  .step-num{
+    width:44px; height:44px;
+    border-radius:50%;
+    background: var(--rose-deep);
+    color:var(--white);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Cormorant Garamond', serif;
+    font-size:19px;
+    margin: 0 auto 16px;
+    position:relative;
+    z-index:1;
+    box-shadow: 0 6px 16px -4px rgba(138,91,112,0.4);
+  }
+  .process-step h3{
+    font-family:'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height:1.4;
+    margin:0;
+    padding: 0 4px;
+  }
+
+  /* ===== Contact ===== */
+  .contact{
+    background: var(--white);
+    padding: 56px 0 0;
+  }
+  .contact-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--line);
+  }
+  .contact-item{
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .contact-item .icon{
+    flex-shrink:0;
+    width: 52px; height:52px;
+    border-radius:50%;
+    background: var(--rose-pale);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .contact-item .icon svg{
+    width:22px; height:22px;
+    stroke: var(--rose-deep);
+    fill:none;
+    stroke-width:1.5;
+  }
+  .contact-item h4{
+    margin:0 0 4px;
+    font-size: 12.5px;
+    font-weight:600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+  }
+  .contact-item p{
+    margin:0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  .contact-item a{
+    color: var(--ink-soft);
+    transition: color .2s ease;
+  }
+  .contact-item a:hover{ color: var(--rose-deep); }
+
+  footer{
+    text-align:center;
+    padding: 26px 0 32px;
+  }
+  footer p{
+    margin:0;
+    font-size: 13.5px;
+    color: var(--rose-deep);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.3px;
+  }
+  /* ===== Responsive ===== */
+  @media (max-width: 720px){
+    .wrap{ padding: 0 22px; }
+    header{ padding: 56px 0 48px; }
+    .logo-img{ width: 200px; }
+    .hero-title{ font-size: 26px; }
+    .hero-focus{ font-size: 16px; }
+    .hero-focus .dot{ margin: 0 5px; }
+    .service-grid{ grid-template-columns: repeat(2, 1fr); gap: 34px 16px; }
+    .process-track{ grid-template-columns: repeat(2, 1fr); row-gap: 34px; }
+    .process-track::before{ display:none; }
+    .contact-grid{ grid-template-columns: 1fr; gap: 26px; }
+    .eyebrow::before, .eyebrow::after{ width: 24px; }
+    .eyebrow h2{ font-size: 21px; }
+  }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--rose-deep);
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="watermark" aria-hidden="true">
+    <span class="p">P</span>
+    <span class="c">C</span>
+  </div>
+  <div class="wrap hero-inner">
+    <img class="logo-img" src="logo.png" alt="Patrícia Costa, Assistente Social">
+    <p class="tagline">Consultoria e Intervenção Social</p>
+    <p class="hero-focus">Família <span class="dot">•</span> Infância <span class="dot">•</span> Juventude</p>
+    <div class="divider"></div>
+    <p class="hero-copy">Intervenção ética, personalizada e centrada na pessoa e na família.</p>
+    <a href="https://calendar.app.google/LefTAa5xjmH1mDrh8" target="_blank" rel="noopener" class="cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Agendar Atendimento
+    </a>
+    <p class="lock-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+      Atendimento mediante marcação prévia
+    </p>
+  </div>
+</header>
+
+<section class="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow"><h2>Serviços</h2></div>
+      <div class="dot"></div>
+    </div>
+    <div class="service-grid">
+      <div class="service">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="1.5"/><path d="M9 3v0a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v0" transform="translate(0,1)"/><circle cx="10" cy="13" r="2.6"/><line x1="12" y1="15.6" x2="14.5" y2="18"/></svg>
+        </div>
+        <h3>Avaliação Social</h3>
+      </div>
+      <div class="service">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="2.8"/><circle cx="17" cy="9" r="2.2"/><path d="M4 20v-1.5A4.5 4.5 0 0 1 8.5 14h1A4.5 4.5 0 0 1 14 18.5V20"/><path d="M15 14.3A3.6 3.6 0 0 1 20 17.7V20"/></svg>
+        </div>
+        <h3>Acompanhamento Familiar</h3>
+      </div>
+      <div class="service">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.3-8.7C1.3 8.4 3 5 6.5 5c2 0 3.3 1.1 4 2.3.7-1.2 2-2.3 4-2.3 2.7 0 4.6 2 4.7 4.4"/><path d="M15.5 12.5H18l1.3-2.2 1.5 3.4 1-1.2H22"/></svg>
+        </div>
+        <h3>Consultoria Social</h3>
+      </div>
+      <div class="service">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v4h5"/><path d="M9 13.5l2 2 4-4.3"/></svg>
+        </div>
+        <h3>Direitos, Apoios e Benefícios</h3>
+      </div>
+      <div class="service">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M5 12l3 3 3-3 3 3 3-3"/><path d="M3 12a9 9 0 0 1 9-9"/><path d="M21 12a9 9 0 0 1-9 9"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <h3>Apoio a Vítimas</h3>
+      </div>
+      <div class="service">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/><line x1="4" y1="21" x2="20" y2="21"/></svg>
+        </div>
+        <h3>Consultoria para Instituições</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow"><h2>Como Funciona</h2></div>
+      <div class="dot"></div>
+    </div>
+    <div class="process-track">
+      <div class="process-step"><div class="step-num">1</div><h3>Pedido de<br>Agendamento</h3></div>
+      <div class="process-step"><div class="step-num">2</div><h3>Confirmação<br>do Horário</h3></div>
+      <div class="process-step"><div class="step-num">3</div><h3>Primeira<br>Sessão</h3></div>
+      <div class="process-step"><div class="step-num">4</div><h3>Avaliação e<br>Planeamento</h3></div>
+      <div class="process-step"><div class="step-num">5</div><h3>Acompanhamento<br>Personalizado</h3></div>
+      <div class="process-step"><div class="step-num">6</div><h3>Avaliação e<br>Encerramento</h3></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 6.5l9 6 9-6"/></svg>
+        </div>
+        <div>
+          <h4>E-mail</h4>
+          <p><a href="mailto:patriciacosta.ss.as@gmail.com">patriciacosta.ss.as@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M12 21s7-6.6 7-12a7 7 0 1 0-14 0c0 5.4 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg>
+        </div>
+        <div>
+          <h4>Atendimento Presencial</h4>
+          <p>Mediante marcação</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="1.5"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div>
+          <h4>Atendimento Online</h4>
+          <p>Comodidade e privacidade</p>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>Compromisso com a dignidade humana, a justiça social e o bem-estar das pessoas e das famílias.</p>
+    </footer>
+  </div>
+</section>
+
+</body>
+</html>
