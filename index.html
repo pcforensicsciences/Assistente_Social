@@ -235,7 +235,7 @@
   }
   .service-grid{
     display:grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 40px 24px;
   }
   .service{
@@ -268,9 +268,17 @@
     font-family:'Jost', sans-serif;
     font-size: 15.5px;
     font-weight: 500;
-    margin:0;
+    margin:0 0 8px;
     line-height:1.4;
     color: var(--ink);
+  }
+  .service p{
+    font-family:'Jost', sans-serif;
+    font-size: 13.5px;
+    font-weight: 300;
+    line-height:1.55;
+    margin:0;
+    color: var(--ink-soft);
   }
 
   /* ===== Como Funciona ===== */
@@ -384,6 +392,36 @@
     font-family: 'Cormorant Garamond', serif;
     letter-spacing: 0.3px;
   }
+  /* ===== Áreas de Intervenção ===== */
+  .areas{
+    background: var(--cream);
+    padding: 8px 0 64px;
+  }
+  .area-tags{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap: 12px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .area-tag{
+    font-family:'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--rose-deep);
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 10px 22px;
+    border-radius: 999px;
+    transition: transform .25s ease, background .25s ease, color .25s ease;
+  }
+  .area-tag:hover{
+    transform: translateY(-2px);
+    background: var(--rose-deep);
+    color: var(--white);
+  }
+
   /* ===== Responsive ===== */
   @media (max-width: 720px){
     .wrap{ padding: 0 22px; }
@@ -431,6 +469,21 @@
   </div>
 </header>
 
+<section class="areas">
+  <div class="wrap">
+    <div class="area-tags">
+      <span class="area-tag">Família</span>
+      <span class="area-tag">Infância</span>
+      <span class="area-tag">Juventude</span>
+      <span class="area-tag">Inclusão Social</span>
+      <span class="area-tag">Direitos Sociais</span>
+      <span class="area-tag">Intervenção Comunitária</span>
+      <span class="area-tag">Apoio a Vítimas</span>
+      <span class="area-tag">Relatórios e Pareceres Técnicos</span>
+    </div>
+  </div>
+</section>
+
 <section class="services">
   <div class="wrap">
     <div class="section-head">
@@ -440,39 +493,31 @@
     <div class="service-grid">
       <div class="service">
         <div class="icon">
-          <svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="1.5"/><path d="M9 3v0a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v0" transform="translate(0,1)"/><circle cx="10" cy="13" r="2.6"/><line x1="12" y1="15.6" x2="14.5" y2="18"/></svg>
+          <svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="1.5"/><circle cx="10" cy="13" r="2.6"/><line x1="12" y1="15.6" x2="14.5" y2="18"/></svg>
         </div>
         <h3>Avaliação Social</h3>
+        <p>Análise técnica da situação social, familiar e comunitária.</p>
       </div>
       <div class="service">
         <div class="icon">
           <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="2.8"/><circle cx="17" cy="9" r="2.2"/><path d="M4 20v-1.5A4.5 4.5 0 0 1 8.5 14h1A4.5 4.5 0 0 1 14 18.5V20"/><path d="M15 14.3A3.6 3.6 0 0 1 20 17.7V20"/></svg>
         </div>
         <h3>Acompanhamento Familiar</h3>
-      </div>
-      <div class="service">
-        <div class="icon">
-          <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.3-8.7C1.3 8.4 3 5 6.5 5c2 0 3.3 1.1 4 2.3.7-1.2 2-2.3 4-2.3 2.7 0 4.6 2 4.7 4.4"/><path d="M15.5 12.5H18l1.3-2.2 1.5 3.4 1-1.2H22"/></svg>
-        </div>
-        <h3>Consultoria Social</h3>
+        <p>Acompanhamento personalizado na definição e concretização de objetivos.</p>
       </div>
       <div class="service">
         <div class="icon">
           <svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v4h5"/><path d="M9 13.5l2 2 4-4.3"/></svg>
         </div>
         <h3>Direitos, Apoios e Benefícios</h3>
+        <p>Informação, orientação e apoio no acesso a recursos e prestações sociais.</p>
       </div>
       <div class="service">
         <div class="icon">
-          <svg viewBox="0 0 24 24"><path d="M5 12l3 3 3-3 3 3 3-3"/><path d="M3 12a9 9 0 0 1 9-9"/><path d="M21 12a9 9 0 0 1-9 9"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg>
+          <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.6"/><circle cx="18" cy="6" r="2.6"/><circle cx="12" cy="18" r="2.6"/><line x1="8" y1="7.5" x2="10.5" y2="16"/><line x1="16" y1="7.5" x2="13.5" y2="16"/><line x1="8.5" y1="6.5" x2="15.5" y2="6.5"/></svg>
         </div>
-        <h3>Apoio a Vítimas</h3>
-      </div>
-      <div class="service">
-        <div class="icon">
-          <svg viewBox="0 0 24 24"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/><line x1="4" y1="21" x2="20" y2="21"/></svg>
-        </div>
-        <h3>Consultoria para Instituições</h3>
+        <h3>Mediação e Trabalho em Rede</h3>
+        <p>Articulação entre pessoas, famílias, instituições e serviços.</p>
       </div>
     </div>
   </div>
@@ -485,11 +530,11 @@
       <div class="dot"></div>
     </div>
     <div class="process-track">
-      <div class="process-step"><div class="step-num">1</div><h3>Pedido de<br>Agendamento</h3></div>
-      <div class="process-step"><div class="step-num">2</div><h3>Confirmação<br>do Horário</h3></div>
-      <div class="process-step"><div class="step-num">3</div><h3>Primeira<br>Sessão</h3></div>
-      <div class="process-step"><div class="step-num">4</div><h3>Avaliação e<br>Planeamento</h3></div>
-      <div class="process-step"><div class="step-num">5</div><h3>Acompanhamento<br>Personalizado</h3></div>
+      <div class="process-step"><div class="step-num">1</div><h3>Contacto<br>Inicial</h3></div>
+      <div class="process-step"><div class="step-num">2</div><h3>Avaliação<br>Social</h3></div>
+      <div class="process-step"><div class="step-num">3</div><h3>Definição de<br>Objetivos</h3></div>
+      <div class="process-step"><div class="step-num">4</div><h3>Plano de<br>Intervenção</h3></div>
+      <div class="process-step"><div class="step-num">5</div><h3>Acompanhamento</h3></div>
       <div class="process-step"><div class="step-num">6</div><h3>Avaliação e<br>Encerramento</h3></div>
     </div>
   </div>
