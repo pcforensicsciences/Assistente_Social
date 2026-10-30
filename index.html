@@ -226,9 +226,84 @@
     margin: 12px auto 0;
   }
 
+  /* ===== Áreas de Intervenção ===== */
+  .areas{
+    background: var(--cream);
+    padding: 8px 0 48px;
+  }
+  .area-tags{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap: 12px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .area-tag{
+    font-family:'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--rose-deep);
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 10px 22px;
+    border-radius: 999px;
+    transition: transform .25s ease, background .25s ease, color .25s ease;
+  }
+  .area-tag:hover{
+    transform: translateY(-2px);
+    background: var(--rose-deep);
+    color: var(--white);
+  }
+
+  /* ===== Sobre Mim ===== */
+  .about{
+    background: var(--white);
+    padding: 72px 0;
+    border-top: 1px solid var(--line);
+  }
+  .about-grid{
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .about-photo{
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+    border: 6px solid var(--rose-pale);
+    box-shadow: 0 12px 28px -10px rgba(138,91,112,0.25);
+  }
+  .about-placeholder{
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: var(--rose-pale);
+    color: var(--rose-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-style: italic;
+    margin: 0 auto;
+    border: 1px solid var(--line);
+  }
+  .about-text p{
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    font-weight: 300;
+    margin: 0 0 18px;
+  }
+  .about-text p:last-child{ margin-bottom: 0; }
+
   /* ===== Serviços ===== */
   .services{
-    background: var(--white);
+    background: var(--cream);
     padding: 72px 0;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
@@ -279,54 +354,6 @@
     line-height:1.55;
     margin:0;
     color: var(--ink-soft);
-  }
-
-  /* ===== Como Funciona ===== */
-  .process{
-    background: var(--rose-pale);
-    padding: 72px 0 80px;
-  }
-  .process-track{
-    position:relative;
-    display:grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 8px;
-  }
-  .process-track::before{
-    content:'';
-    position:absolute;
-    top:22px;
-    left: 8.3%;
-    right: 8.3%;
-    height:1px;
-    background: var(--line);
-  }
-  .process-step{
-    position:relative;
-    text-align:center;
-  }
-  .step-num{
-    width:44px; height:44px;
-    border-radius:50%;
-    background: var(--rose-deep);
-    color:var(--white);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:'Cormorant Garamond', serif;
-    font-size:19px;
-    margin: 0 auto 16px;
-    position:relative;
-    z-index:1;
-    box-shadow: 0 6px 16px -4px rgba(138,91,112,0.4);
-  }
-  .process-step h3{
-    font-family:'Jost', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    line-height:1.4;
-    margin:0;
-    padding: 0 4px;
   }
 
   /* ===== Contact ===== */
@@ -385,7 +412,7 @@
     padding: 26px 0 32px;
   }
   footer p{
-    margin:0;
+    margin:0 0 6px;
     font-size: 13.5px;
     color: var(--rose-deep);
     font-style: italic;
@@ -399,47 +426,16 @@
   }
   footer .legal-link:hover{ color: var(--rose); }
 
-  /* ===== Áreas de Intervenção ===== */
-  .areas{
-    background: var(--cream);
-    padding: 8px 0 64px;
-  }
-  .area-tags{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap: 12px;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-  .area-tag{
-    font-family:'Jost', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--rose-deep);
-    background: var(--white);
-    border: 1px solid var(--line);
-    padding: 10px 22px;
-    border-radius: 999px;
-    transition: transform .25s ease, background .25s ease, color .25s ease;
-  }
-  .area-tag:hover{
-    transform: translateY(-2px);
-    background: var(--rose-deep);
-    color: var(--white);
-  }
-
   /* ===== Responsive ===== */
-  @media (max-width: 720px){
+  @media (max-width: 768px){
     .wrap{ padding: 0 22px; }
     header{ padding: 56px 0 48px; }
     .logo-img{ width: 200px; }
     .hero-title{ font-size: 26px; }
     .hero-focus{ font-size: 16px; }
     .hero-focus .dot{ margin: 0 5px; }
+    .about-grid{ grid-template-columns: 1fr; gap: 32px; text-align: center; }
     .service-grid{ grid-template-columns: repeat(2, 1fr); gap: 34px 16px; }
-    .process-track{ grid-template-columns: repeat(2, 1fr); row-gap: 34px; }
-    .process-track::before{ display:none; }
     .contact-grid{ grid-template-columns: 1fr; gap: 26px; }
     .eyebrow::before, .eyebrow::after{ width: 24px; }
     .eyebrow h2{ font-size: 21px; }
@@ -490,6 +486,27 @@
   </div>
 </section>
 
+<section class="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow"><h2>Sobre Mim</h2></div>
+      <div class="dot"></div>
+    </div>
+    <div class="about-grid">
+      <div>
+        <!-- Quando tiveres a foto pronta no teu GitHub, usa a tag <img> abaixo e remove o placeholder -->
+        <!-- <img src="foto-patricia.jpg" alt="Patrícia Costa" class="about-photo"> -->
+        <div class="about-placeholder">PC</div>
+      </div>
+      <div class="about-text">
+        <p>Sou a <strong>Patrícia Costa</strong>, licenciada em Serviço Social e mestranda em Ciências Forenses na Universidade do Porto, com foco de investigação em dinâmicas de vulnerabilidade, violência e justiça.</p>
+        <p>Como Assistente Social Autónoma, desenvolvo uma intervenção ética, humanizada e centrada na pessoa e na família. O meu objetivo é criar um espaço seguro e desprovido de julgamentos, onde possa encontrar orientação clara sobre os seus direitos, apoio na reorganização da dinâmica familiar e soluções práticas para os seus desafios sociais.</p>
+        <p>Acredito no acompanhamento preventivo e na garantia de direitos como ferramentas fundamentais para o bem-estar e autonomia de cada indivíduo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="services">
   <div class="wrap">
     <div class="section-head">
@@ -529,24 +546,6 @@
   </div>
 </section>
 
-  <!--
-<section class="process">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow"><h2>Como Funciona</h2></div>
-      <div class="dot"></div>
-    </div>
-    <div class="process-track">
-      <div class="process-step"><div class="step-num">1</div><h3>Contacto<br>Inicial</h3></div>
-      <div class="process-step"><div class="step-num">2</div><h3>Avaliação<br>Social</h3></div>
-      <div class="process-step"><div class="step-num">3</div><h3>Definição de<br>Objetivos</h3></div>
-      <div class="process-step"><div class="step-num">4</div><h3>Plano de<br>Intervenção</h3></div>
-      <div class="process-step"><div class="step-num">5</div><h3>Acompanhamento</h3></div>
-      <div class="process-step"><div class="step-num">6</div><h3>Avaliação e<br>Encerramento</h3></div>
-    </div>
-  </div>
-</section>
--->
 <section class="contact">
   <div class="wrap">
     <div class="contact-grid">
@@ -578,6 +577,9 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
 <footer>
   <p>Patrícia Costa — Assistente Social (Cédula Profissional n.º 12697 — OAS) | Técnica de Apoio à Vítima (TAV) | Mestranda em Ciências Forenses</p>
   <p>Compromisso com a dignidade humana, a justiça social e o bem-estar das pessoas e das famílias.</p>
